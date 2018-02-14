@@ -11,11 +11,10 @@ SELECT
 *
 FROM
 'bills'
-LIMIT 50 OFFSET :offset
-"
+LIMIT 50 OFFSET " . $offset
 ;
 $stmt = $pdo->prepare($sql);
-$stmt->execute(array('offset' => $offset));
+$stmt->execute();
 
 $bills = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -26,12 +25,14 @@ $bills = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title></title>
 </head>
 <body>
+
 <table>
 <?php foreach ($bills as $bill): ?>
 <tr>
     <td><?php echo htmlEscape($bill['title'])?></td>
     <td><?php echo htmlEscape($bill['number'])?></td>
-    <td><a href = "view-bill?number=<?php echo $bill['number']?> ">Read More</a></td>
+    <td><a href ="track-bill.php?number=<?php echo $bill['number']?>&amp;action='track'">Track Bill</a></td>
+    <td><a href = "view-bill.php?number=<?php echo $bill['number']?> ">Read More</a></td>
 </tr>
     <?php endforeach ?>
 </table>
