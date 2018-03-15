@@ -14,19 +14,17 @@ $stmt->execute();
 <html>
 <head>
     <title>Welcome to Heidi's Virginia Legislative Website Tracker</title>
-
+    <?php require "templates/head.php" ?>
 </head>
 
 <body>
-<p> Count is <?php echo  $count ?></p>
+<?php require "templates/header.php" ?>
 
 
     <?php while($index < $count):?>
-    <?php $offset = $index +50?>
+    <?php $offset = $index +99?>
 
-<p>
     <a href = "list-bill.php?offset=<?php echo $index?>">See bills [<?php echo $index?>] - [<?php echo $offset?>]</a>
-</p>
     <?php $index = $offset +1?>
 <?endwhile ?>
 </body>

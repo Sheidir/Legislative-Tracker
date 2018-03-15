@@ -31,8 +31,8 @@ $bills = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <tr>
     <td><?php echo htmlEscape($bill['title'])?></td>
     <td><?php echo htmlEscape($bill['number'])?></td>
-    <td><a href ="track-bill.php?number=<?php echo $bill['number']?>&amp;action='track'">Track Bill</a></td>
-    <td><a href = "view-bill.php?number=<?php echo $bill['number']?> ">Read More</a></td>
+    <td><a href ="track-bill.php?number=<?php echo $bill['number']?>&amp;action=track">Track Bill</a></td>
+    <td><a href = "view-bill.php?number=<?php echo $bill['number']?>">Read More</a></td>
 </tr>
     <?php endforeach ?>
 </table>
